@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>深译 TransSeek · 中英互译</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="bg-logo" aria-hidden="true"></div>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">译</span>
+      <span class="name">深译
+        <span class="sub">TransSeek · 中英互译</span>
+      </span>
+    </div>
+    <div class="topbar-right">
+      <div class="brain-counter" id="brain-counter">
+        <span class="brain-icon">🧠</span>
+        <span class="brain-value" id="brain-today">0</span>
+        <div class="brain-tip">
+          <div>今日脑容量：<b id="brain-tip-today">0</b></div>
+          <div>总脑容量：<b id="brain-tip-total">0</b></div>
+        </div>
+      </div>
+      <div class="status warn" id="status">连接中…</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="input-card">
+      <div class="toolbar">
+        <div class="modes" id="modes">
+          <button data-mode="auto" class="active">自动</button>
+          <button data-mode="word">单词</button>
+          <button data-mode="sentence">句子</button>
+        </div>
+        <div class="langs" id="langs">英语 → 简体中文</div>
+      </div>
+      <textarea id="input" rows="4" spellcheck="false"
+        placeholder="输入单词或句子，按 Enter 翻译（Shift+Enter 换行）…"></textarea>
+      <div class="actions">
+        <button id="btn" class="primary">翻 译</button>
+        <button id="clear" class="ghost">清空</button>
+        <span class="hint">Enter 翻译 · Shift+Enter 换行</span>
+      </div>
+    </section>
+
+    <section class="result-card">
+      <div class="result-head">
+        <span class="label">翻译结果</span>
+        <button id="copy" class="ghost" disabled>复制</button>
+      </div>
+      <div id="result" class="result">
+        <div class="placeholder">结果将显示在这里</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">由 <code>TransSeek</code> 提供 · 支持中英互译</footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

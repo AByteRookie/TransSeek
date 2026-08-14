@@ -1,0 +1,27 @@
+{
+  "name": "transseek",
+  "version": "1.0.0",
+  "description": "深译 TransSeek · 基于 DeepSeek API 的中英互译工具（CLI + 网页版）",
+  "type": "module",
+  "bin": {
+    "ds": "./bin/ds.js"
+  },
+  "scripts": {
+    "start": "node bin/ds.js",
+    "server": "node src/server.js",
+    "test": "node --test",
+    "link": "npm link"
+  },
+  "keywords": [
+    "deepseek",
+    "translate",
+    "dictionary",
+    "cli",
+    "translation"
+  ],
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "license": "MIT",
+  "author": "TransSeek"
+}
