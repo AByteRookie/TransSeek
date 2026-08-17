@@ -183,7 +183,7 @@ function setConfigValue(key, rawValue) {
   if (key.startsWith('prompt.')) {
     const name = key.slice('prompt.'.length);
     if (!PROMPT_KEYS.has(name)) {
-      throw new Error(`未知提示词: ${name}（可选 word / sentence）`);
+      throw new Error(`未知提示词: ${name}（可选 word / wordZh / sentence）`);
     }
     cfg.prompts[name] = rawValue;
     saveConfig(cfg);
@@ -192,7 +192,7 @@ function setConfigValue(key, rawValue) {
   }
   if (!SETTABLE_KEYS.has(key)) {
     throw new Error(
-      `不可设置的键: ${key}（可选 ${[...SETTABLE_KEYS].join(', ')}，或 prompt.word / prompt.sentence）`
+      `不可设置的键: ${key}（可选 ${[...SETTABLE_KEYS].join(', ')}，或 prompt.word / prompt.wordZh / prompt.sentence）`
     );
   }
   let value = rawValue;
@@ -227,7 +227,8 @@ function showConfig(cfg) {
     `  maxTokens   : ${cfg.maxTokens}`,
     `  timeoutMs   : ${cfg.timeoutMs}`,
     '  prompts :',
-    '    word     (已配置)' ,
+    '    word     (已配置)',
+    '    wordZh   (已配置)',
     '    sentence (已配置)'
   ];
   console.log(lines.join('\n'));

@@ -30,7 +30,7 @@ export const SETTABLE_KEYS = new Set([
 ]);
 
 /** 可被 `ds config set prompt.<name>` 修改的提示词 */
-export const PROMPT_KEYS = new Set(['word', 'sentence']);
+export const PROMPT_KEYS = new Set(['word', 'wordZh', 'sentence']);
 
 function deepMerge(base, override) {
   const out = { ...base };

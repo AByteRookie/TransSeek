@@ -22,6 +22,22 @@ export const DEFAULT_PROMPTS = {
 2. 术语保持专业一致，释义准确、分义项、避免歧义。
 3. 只输出词典条目本身，不要任何额外解释或开场白。`,
 
+  wordZh: `你是一名专业词典编纂者，精通【{sourceLang}】与【{targetLang}】。
+请将下面的【{sourceLang}】单词/词语翻译为【{targetLang}】，输出规范的词典条目。
+
+【单词】
+{text}
+
+【输出要求】
+1. 严格使用 Markdown 格式，结构如下：
+   - **单词**：原文
+   - **拼音**：该词的标准拼音（带声调）
+   - **词性**：n. / v. / adj. / adv. 等（可多个，逐个列出）
+   - **释义**：每个词性下用带序号的列表列出常见的{targetLang}义项，按常用度排序
+   - **例句**：为每个核心词性给出 1-2 个{targetLang}例句，并附{sourceLang}翻译
+2. 术语保持专业一致，释义准确、分义项、避免歧义。
+3. 只输出词典条目本身，不要任何额外解释或开场白。`,
+
   sentence: `你是一名专业翻译，精通【{sourceLang}】与【{targetLang}】。
 请将下面的【{sourceLang}】句子/段落翻译为【{targetLang}】。
 
@@ -53,6 +69,11 @@ export function renderPrompt(template, vars) {
   );
 }
 
+/** 语言名是否指向中文（用于选择中文源词典模板）。 */
+function isChineseLang(name) {
+  return /中文|汉语|Chinese/i.test(String(name ?? ''));
+}
+
 /**
  * 根据模式和配置构建 messages。
  * @param {string} text 待翻译文本
@@ -61,7 +82,13 @@ export function renderPrompt(template, vars) {
  * @returns {Array<{role:string, content:string}>}
  */
 export function buildMessages(text, mode, cfg) {
-  const promptTemplate = cfg?.prompts?.[mode] ?? DEFAULT_PROMPTS[mode];
+  // 单词模式：中文源用 wordZh 模板（拼音/词性/目标语言释义/例句），否则用通用词典模板
+  let promptTemplate;
+  if (mode === 'word' && isChineseLang(cfg?.sourceLang)) {
+    promptTemplate = cfg?.prompts?.wordZh ?? DEFAULT_PROMPTS.wordZh;
+  } else {
+    promptTemplate = cfg?.prompts?.[mode] ?? DEFAULT_PROMPTS[mode];
+  }
   const vars = {
     sourceLang: cfg.sourceLang,
     targetLang: cfg.targetLang,
