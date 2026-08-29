@@ -29,6 +29,9 @@ async function translateTerm(ctx, provider, model, text) {
     model,
     messages,
     system: SYSTEM_PROMPT,
+    // 关闭推理（thinking: disabled）：术语速查只需直接输出释义，
+    // 否则推理模型会把 maxTokens 全部花在推理上，正文为空而报 "max-tokens"。
+    reasoningEffort: 'off',
     maxTokens: 500
   });
 
@@ -50,7 +53,7 @@ async function translateTerm(ctx, provider, model, text) {
 
 function apply(ctx, config) {
   const provider = config?.provider || 'deepseek-official';
-  const model = config?.model || 'deepseek-chat';
+  const model = config?.model || 'deepseek-v4-flash';
 
   ctx.effect(() => ctx.webServer.register({
     kind: 'prefix',

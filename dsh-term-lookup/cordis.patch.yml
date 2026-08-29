@@ -3,4 +3,4 @@
       name: 'dsh-term-lookup'
       config:
         provider: 'deepseek-official'
-        model: 'deepseek-chat'
+        model: 'deepseek-v4-flash'
