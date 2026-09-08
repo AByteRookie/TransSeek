@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "深译 TransSeek 划词翻译",
+  "version": "1.0.0",
+  "description": "在任意网页选中文字，即可调用本地 TransSeek 服务快速翻译（划词翻译）。",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "http://127.0.0.1:9177/*",
+    "http://localhost:9177/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "all_frames": true,
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "options.html",
+  "action": {
+    "default_title": "深译 TransSeek 划词翻译（点击打开设置）"
+  }
+}

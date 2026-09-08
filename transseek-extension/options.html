@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>深译 TransSeek 划词翻译 · 设置</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      font-family: -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
+      max-width: 520px; margin: 40px auto; padding: 0 20px;
+      color: #222; background: #fff;
+    }
+    @media (prefers-color-scheme: dark) {
+      body { color: #e8eaf2; background: #141828; }
+      input[type=text] { background: #1a1f33; color: #e8eaf2; border-color: #3a425c; }
+    }
+    h1 { font-size: 18px; }
+    label { display: block; margin: 16px 0 6px; font-size: 14px; }
+    input[type=text] {
+      width: 100%; padding: 8px 10px; font-size: 14px;
+      border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;
+    }
+    .hint { font-size: 12px; color: #888; margin-top: 6px; }
+    button {
+      margin-top: 18px; padding: 8px 18px; background: #566eff; color: #fff;
+      border: none; border-radius: 6px; cursor: pointer; font-size: 14px;
+    }
+    button:hover { background: #6d82ff; }
+    #status { margin-left: 10px; color: #2e9e5b; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <h1>深译 TransSeek 划词翻译 · 设置</h1>
+  <label for="server">本地服务地址</label>
+  <input type="text" id="server" placeholder="http://127.0.0.1:9177" spellcheck="false">
+  <div class="hint">默认复用本地 TransSeek 服务（已设置开机自启），一般无需修改。</div>
+  <button id="save">保存</button>
+  <span id="status"></span>
+  <script src="options.js"></script>
+</body>
+</html>

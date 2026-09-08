@@ -1,0 +1,85 @@
+/* 深译 TransSeek 划词翻译 —— 内容脚本样式（注入到页面） */
+.ts-btn {
+  position: fixed !important;
+  z-index: 2147483646 !important;
+  margin: 0 !important;
+  padding: 2px 10px !important;
+  border: none !important;
+  border-radius: 12px !important;
+  background: #566eff !important;
+  color: #fff !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  line-height: 20px !important;
+  cursor: pointer !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35) !important;
+  box-sizing: border-box !important;
+  transform: translate(-50%, 0);
+}
+.ts-btn:hover { background: #6d82ff !important; }
+
+.ts-pop {
+  position: fixed !important;
+  z-index: 2147483647 !important;
+  width: 300px !important;
+  max-width: 90vw !important;
+  max-height: 60vh !important;
+  overflow: auto !important;
+  background: #1a1f33 !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 10px !important;
+  padding: 10px 12px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45) !important;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+  color: #e8eaf2 !important;
+  font-family: -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif !important;
+  box-sizing: border-box !important;
+  text-align: left !important;
+}
+
+.ts-pop-head {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 6px !important;
+}
+.ts-pop-term {
+  color: #97a0b8 !important;
+  font-size: 12px !important;
+  word-break: break-all !important;
+}
+.ts-pop-close {
+  border: none !important;
+  background: transparent !important;
+  color: #97a0b8 !important;
+  font-size: 16px !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+  padding: 0 2px !important;
+  margin: 0 !important;
+}
+.ts-pop-close:hover { color: #fff !important; }
+
+.ts-pop-body { color: #e8eaf2 !important; }
+.ts-pop-loading { color: #97a0b8 !important; }
+.ts-pop-error { color: #ff6b6b !important; word-break: break-all !important; }
+.ts-pop-content { white-space: normal !important; word-break: break-word !important; }
+.ts-pop-content strong { color: #fff !important; font-weight: 600 !important; }
+
+.ts-pop-bar {
+  display: flex !important;
+  justify-content: flex-end !important;
+  margin-top: 8px !important;
+}
+.ts-pop-copy {
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #c6cde6 !important;
+  font-size: 12px !important;
+  padding: 2px 10px !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  margin: 0 !important;
+}
+.ts-pop-copy:hover { color: #fff !important; border-color: #566eff !important; }
