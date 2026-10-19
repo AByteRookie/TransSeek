@@ -5,8 +5,8 @@
   "description": "在任意网页选中文字，即可调用本地 TransSeek 服务快速翻译（划词翻译）。",
   "permissions": ["storage"],
   "host_permissions": [
-    "http://127.0.0.1:9177/*",
-    "http://localhost:9177/*"
+    "http://127.0.0.1/*",
+    "http://localhost/*"
   ],
   "background": {
     "service_worker": "background.js"

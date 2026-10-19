@@ -8,6 +8,11 @@
   // （window 上的变量属于隔离世界，页面控制台看不到，DOM 标记则可见）
   if (document.documentElement) document.documentElement.setAttribute('data-transseek-loaded', '1');
 
+  // 跳过 DSH 界面（127.0.0.1:3080 / localhost:3080）：
+  // 该界面已有「术语速查」插件的「译」按钮，这里不再重复注入，避免出现两个按钮。
+  // 用运行时判断而不是 manifest 的 exclude_matches —— match pattern 不支持端口号。
+  if ((location.hostname === '127.0.0.1' || location.hostname === 'localhost') && location.port === '3080') return;
+
   const MAX_LEN = 800; // 超过此长度的选中内容不触发（避免整篇/超长段落）
   let button = null;
   let popup = null;

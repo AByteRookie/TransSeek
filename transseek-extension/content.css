@@ -6,7 +6,7 @@
   padding: 2px 10px !important;
   border: none !important;
   border-radius: 12px !important;
-  background: #566eff !important;
+  background: #6e9bfa !important;
   color: #fff !important;
   font-size: 13px !important;
   font-weight: 600 !important;
@@ -16,7 +16,7 @@
   box-sizing: border-box !important;
   transform: translate(-50%, 0);
 }
-.ts-btn:hover { background: #6d82ff !important; }
+.ts-btn:hover { background: #5080f0 !important; }
 
 .ts-pop {
   position: fixed !important;
@@ -82,4 +82,4 @@
   cursor: pointer !important;
   margin: 0 !important;
 }
-.ts-pop-copy:hover { color: #fff !important; border-color: #566eff !important; }
+.ts-pop-copy:hover { color: #fff !important; border-color: #6e9bfa !important; }
